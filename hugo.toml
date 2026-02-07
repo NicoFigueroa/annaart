@@ -1,0 +1,15 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Anna Rasmussen Ceramics"
+
+[params]
+  artistName = "Anna Rasmussen"
+  tagline = "Something something ceramics"
+  contactEmail = "anna.rasmussen2@gmail.com"
+  instagram = "grilledbees"
+  studioLocation = "Providence, RI"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

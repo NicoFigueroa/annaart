@@ -1,0 +1,20 @@
+<footer class="site-footer" id="contact">
+  <div class="container footer-inner">
+    <div>
+      <p class="footer-title">Contact</p>
+      <a href="mailto:{{ site.Params.contactEmail }}"
+        >{{ site.Params.contactEmail }}</a
+      >
+      {{ with site.Params.instagram }}
+      <p><a href="https://instagram.com/{{ . }}">@{{ . }}</a></p>
+      {{ end }}
+    </div>
+    <div>
+      <p class="footer-title">Studio</p>
+      <p>
+        {{ with site.Params.studioLocation }}{{ . }}{{ else }}Location on
+        request{{ end }}
+      </p>
+    </div>
+  </div>
+</footer>

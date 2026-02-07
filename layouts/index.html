@@ -1,0 +1,65 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <p class="eyebrow">{{ site.Params.tagline }}</p>
+      <h1>{{ site.Params.artistName }}</h1>
+      <p class="lede">{{ .Params.intro }}</p>
+      <a class="button" href="{{ .Params.ctaLink }}">{{ .Params.ctaText }}</a>
+    </div>
+    <div class="hero-image">
+      {{ with .Params.heroImage }}
+      <img src="{{ . }}" alt="{{ site.Params.artistName }}" />
+      {{ else }}
+      <div class="image-placeholder"></div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Pieces</h2>
+    <div class="grid">
+      {{ range first 3 (where site.RegularPages "Section" "work") }} {{ $page :=
+      . }}
+      <a class="card" href="{{ $page.RelPermalink }}">
+        <div class="card-image">
+          {{ $thumb := $page.Params.thumbnail }} {{ if not $thumb }}{{ $thumb =
+          (index $page.Params.images 0) }}{{ end }} {{ if $thumb }} {{ if
+          strings.HasPrefix $thumb "/" }}
+          <img src="{{ $thumb }}" alt="{{ $page.Title }}" />
+          {{ else }} {{ with $page.Resources.Get $thumb }}
+          <img src="{{ .RelPermalink }}" alt="{{ $page.Title }}" />
+          {{ else }}
+          <div class="image-placeholder"></div>
+          {{ end }} {{ end }} {{ else }}
+          <div class="image-placeholder"></div>
+          {{ end }}
+        </div>
+        <div class="card-body">
+          <h3>{{ $page.Title }}</h3>
+          {{ with $page.Params.idea }}
+          <p class="meta">{{ . }}</p>
+          {{ end }}
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section section-muted">
+  <div class="container split">
+    <div>
+      <h2>Studio notes</h2>
+      <p>{{ .Content }}</p>
+    </div>
+    <div>
+      <h2>Practice</h2>
+      <p>{{ .Content }}</p>
+      <a class="button ghost" href="#contact">Start a conversation</a>
+    </div>
+  </div>
+</section>
+{{ end }}

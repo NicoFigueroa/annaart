@@ -1,0 +1,37 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <h1 class="page-title">{{ .Title }}</h1>
+    {{ with .Params.description }}<p class="lede">{{ . }}</p>{{ end }}
+    <div class="grid">
+      {{ range .Pages }}
+      {{ $page := . }}
+      <a class="card" href="{{ $page.RelPermalink }}">
+        <div class="card-image">
+          {{ $thumb := $page.Params.thumbnail }}
+          {{ if not $thumb }}{{ $thumb = (index $page.Params.images 0) }}{{ end }}
+          {{ if $thumb }}
+            {{ if strings.HasPrefix $thumb "/" }}
+              <img src="{{ $thumb }}" alt="{{ $page.Title }}" />
+            {{ else }}
+              {{ with $page.Resources.Get $thumb }}
+                <img src="{{ .RelPermalink }}" alt="{{ $page.Title }}" />
+              {{ else }}
+                <div class="image-placeholder"></div>
+              {{ end }}
+            {{ end }}
+          {{ else }}
+            <div class="image-placeholder"></div>
+          {{ end }}
+        </div>
+        <div class="card-body">
+          <h2>{{ $page.Title }}</h2>
+          {{ with $page.Params.idea }}<p class="meta">{{ . }}</p>{{ end }}
+          {{ if not $page.Params.idea }}{{ with $page.Summary }}<p class="meta">{{ . }}</p>{{ end }}{{ end }}
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
