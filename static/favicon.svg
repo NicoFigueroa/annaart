@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Sun icon">
+  <rect width="128" height="128" fill="none"/>
+  <circle cx="64" cy="64" r="22" fill="#d9a441"/>
+  <g fill="#d9a441">
+    <polygon points="92.00,64.00 113.89,84.66 83.80,83.80" />
+    <polygon points="83.80,83.80 84.66,113.89 64.00,92.00" />
+    <polygon points="64.00,92.00 43.34,113.89 44.20,83.80" />
+    <polygon points="44.20,83.80 14.11,84.66 36.00,64.00" />
+    <polygon points="36.00,64.00 14.11,43.34 44.20,44.20" />
+    <polygon points="44.20,44.20 43.34,14.11 64.00,36.00" />
+    <polygon points="64.00,36.00 84.66,14.11 83.80,44.20" />
+    <polygon points="83.80,44.20 113.89,43.34 92.00,64.00" />
+  </g>
+</svg>
