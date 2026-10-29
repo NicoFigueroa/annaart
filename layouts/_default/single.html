@@ -2,12 +2,8 @@
 <section class="section">
   <div class="container">
     <div class="detail-header">
-      <h1 class="page-title">{{ .Title }}</h1>
+      <h1 class="page-title">{{ .Title }}{{ with .Params.year }}, {{ . }}{{ end }}</h1>
       {{ with .Params.idea }}<p class="lede">{{ . }}</p>{{ end }}
-      <div class="detail-meta">
-        {{ with .Params.materials }}<span>{{ . }}</span>{{ end }}
-        {{ with .Params.year }}<span>{{ . }}</span>{{ end }}
-      </div>
     </div>
     {{ with .Params.images }}
     <div class="detail-gallery">
@@ -23,6 +19,9 @@
       {{ end }}
     </div>
     {{ end }}
+    <p class="detail-meta">
+      <em>{{ .Title }}</em>{{ with .Params.year }}, {{ . }}{{ end }}{{ with .Params.materials }}, {{ . }}{{ end }}
+    </p>
     <div class="content">
       {{ .Content }}
     </div>

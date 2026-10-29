@@ -164,10 +164,10 @@ h1 {
 }
 
 .detail-meta {
-  display: flex;
-  gap: 1.5rem;
+  margin-top: 0;
   color: var(--muted);
   font-size: 0.95rem;
+  margin-bottom: 1rem;
 }
 
 .detail-gallery {

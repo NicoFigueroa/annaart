@@ -1,9 +1,9 @@
 ---
-title: "Fuzzy Guy"
+title: "Comfort Creature"
 date: 2026-02-07
 tags: ["sculptural", "glaze"]
-materials: "Stoneware, glaze"
-year: "2025"
+year: "2024"
+materials: "ceramic, glaze, luster"
 idea: "Soft edges and dense surface texture create a playful, almost creature-like presence."
 thumbnail: "fuzzyguy.jpg"
 images:

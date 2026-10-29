@@ -25,7 +25,7 @@
           {{ end }}
         </div>
         <div class="card-body">
-          <h2>{{ $page.Title }}</h2>
+          <h2>{{ $page.Title }}{{ with $page.Params.year }}, {{ . }}{{ end }}</h2>
           {{ with $page.Params.idea }}<p class="meta">{{ . }}</p>{{ end }}
           {{ if not $page.Params.idea }}{{ with $page.Summary }}<p class="meta">{{ . }}</p>{{ end }}{{ end }}
         </div>
