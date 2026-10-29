@@ -1,0 +1,19 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <h1 class="page-title">{{ .Title }}</h1>
+    {{ with .Params.description }}<p class="lede">{{ . }}</p>{{ end }}
+    <div class="post-list">
+      {{ range .Pages }}
+      <a class="post-item" href="{{ .RelPermalink }}">
+        <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        <h2>{{ .Title }}</h2>
+        {{ with .Summary }}<p class="meta">{{ . | plainify | truncate 200 }}</p>{{ end }}
+      </a>
+      {{ else }}
+      <p class="meta">No posts yet.</p>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

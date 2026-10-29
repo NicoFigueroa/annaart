@@ -1,0 +1,30 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <div class="detail-header">
+      <h1 class="page-title">{{ .Title }}{{ with .Params.year }}, {{ . }}{{ end }}</h1>
+      {{ with .Params.idea }}<p class="lede">{{ . }}</p>{{ end }}
+    </div>
+    {{ with .Params.images }}
+    <div class="detail-gallery">
+      {{ range . }}
+        {{ $img := . }}
+        {{ if strings.HasPrefix $img "/" }}
+          <img src="{{ $img }}" alt="{{ $.Title }}" />
+        {{ else }}
+          {{ with $.Resources.Get $img }}
+            <img src="{{ .RelPermalink }}" alt="{{ $.Title }}" />
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+    {{ end }}
+    <p class="detail-meta">
+      <em>{{ .Title }}</em>{{ with .Params.year }}, {{ . }}{{ end }}{{ with .Params.materials }}, {{ . }}{{ end }}
+    </p>
+    <div class="content">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+{{ end }}
