@@ -1,7 +1,7 @@
 ---
 title: "Home"
 intro: "My wonderful fae"
-heroImage: "/img/hero-placeholder.svg"
+heroImage: "/img/artist.jpg"
 ctaText: "Check out my work"
 ctaLink: "/work/"
 ---
